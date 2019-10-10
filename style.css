@@ -19,3 +19,9 @@
     margin: 2px 2px 2px 2px;
     border-radius: 7px;
 }
+
+/* fond cacul */
+.fond {
+    background-color: rgb(179, 175, 175, 0.6);
+    border-radius: 5px;
+}

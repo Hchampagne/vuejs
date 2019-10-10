@@ -12,45 +12,62 @@
 
 
 <body>
-<div class="col-md-3">
-</div>
-    <div id="app" class="col-md-6">  
+<div id="app" class="col">  
         <h4 class="text-center">Calculatrice</h4>
-        <hr>
+        <br><hr>
+    <fieldset>
         <div class="row justify-content-center">           
             <input class="taille1" id="result" type="text">          
         </div><br>
         <div class="row justify-content-center">
-            <input type="button" class="btn btn-danger taille2" v-model="-" v-on:click="btn" value="CE">
-            <input type="button" class="btn btn-warning taille2" v-model="-" v-on:click="btn" value="C">
+            <input type="button" class="btn btn-danger taille2" v-model="ce" v-on:click="btn" value="CE">
+            <input type="button" class="btn btn-warning taille2" v-model="c" v-on:click="btn" value="C">
         </div>
         <div class="row justify-content-center">          
             <input type="button" class="btn btn-primary taille"  v-model="1" v-on:click="btn" value="1">
             <input type="button" class="btn btn-primary taille" v-model="2" v-on:click="btn" value="2">
             <input type="button" class="btn btn-primary taille" v-model="3" v-on:click="btn" value="3">
-            <input type="button" class="btn btn-secondary taille" v-model="+" v-on:click="btn" value="+">          
+            <input type="button" class="btn btn-secondary taille" v-model="plus" v-on:click="btn" value="+">          
         </div>
         <div class="row justify-content-center">
             <input type="button" class="btn btn-primary taille" v-model="4" v-on:click="btn" value="4">
             <input type="button" class="btn btn-primary taille" v-model="5" v-on:click="btn" value="5">
             <input type="button" class="btn btn-primary taille" v-model="6" v-on:click="btn" value="6">
-            <input type="button" class="btn btn-secondary taille" v-model="-" v-on:click="btn" value="-">           
+            <input type="button" class="btn btn-secondary taille" v-model="moins" v-on:click="btn" value="-">           
         </div>
         <div class="row justify-content-center">
             <input type="button" class="btn btn-primary taille" v-model="7" v-on:click="btn" value="7">
             <input type="button" class="btn btn-primary taille" v-model="8" v-on:click="btn" value="8">
             <input type="button" class="btn btn-primary taille" v-model="9" v-on:click="btn" value="9">
-            <input type="button" class="btn btn-secondary taille" v-model="*" v-on:click="btn" value="*">           
+            <input type="button" class="btn btn-secondary taille" v-model="mult" v-on:click="btn" value="*">           
         </div>
         <div class="row justify-content-center">
-            <input type="button" class="btn btn-primary taille" v-model="-" v-on:click="btn" value="0">   
-            <input type="button" class="btn btn-primary taille" v-model="-" v-on:click="btn" value=".">
-            <input type="button" class="btn btn-success taille" v-model="=" v-on:click="btn" value="=">
-            <input type="button" class="btn btn-secondary taille" v-model="/" v-on:click="btn" value="/">           
+            <input type="button" class="btn btn-primary taille" v-model="0" v-on:click="btn" value="0">   
+            <input type="button" class="btn btn-primary taille" v-model="virgule" v-on:click="btn" value=".">
+            <input type="button" class="btn btn-success taille" v-model="egal" v-on:click="btn" value="=">
+            <input type="button" class="btn btn-secondary taille" v-model="div" v-on:click="btn" value="/">           
         </div>
-    </div>
-<div class="col-md-3">
+    </fieldset>
 </div>
+
+ <script>
+     var varMagic = parseInt(Math.random() * 100); //nb aléatoire
+     var app = new Vue({
+         el: '#app',
+         data: {
+             nb1: '', // saisie
+             result: 0,
+             mess: 'division /0'
+         },
+         methods: {
+             btn: function (evt) {
+                
+             }
+         }
+     });
+ </script>
+
+
 
 
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"> </script>
