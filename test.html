@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+    <style>
+        #label1 {   
+            width: 300px;   
+            height: 100px;    
+            background-color: red;   
+        }
+    </style>
+
+<body>
+ <div id="app">
+    {{ message }}
+    <button v-on:click="btn1_click">Test</button>
+    <hr>
+    <input type="text" v-model="message">
+    <hr>
+    <div id="label1" v-show="label_visible"></div>
+</div>
+
+
+
+ <script>
+    var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Bonjour !',
+                label_visible: false
+            },
+            methods: {
+                btn1_click: function (evt) {
+                    this.message = "Le label est visible";
+                    this.label_visible = true;
+                }
+            }
+        });
+ </script>
+ 
+</body>
+</html>
