@@ -1,0 +1,21 @@
+/*  boutons 0 à 9 et ./+-*  */
+.taille { 
+    height : 60px;
+    width :  80px; 
+    margin: 2px 2px 2px 2px;
+    border-radius: 7px;
+    }
+/* digit*/
+.taille1 { 
+    height : 50px;
+    width : 328px;
+    border-radius: 7px;  
+}
+
+/* boutons CE et C */
+.taille2{
+    height: 30px;
+    width: 162px;
+    margin: 2px 2px 2px 2px;
+    border-radius: 7px;
+}
