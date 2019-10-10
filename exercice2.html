@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+ <title>Exercice2</title>
+ <meta charset="utf-8">
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+ <div id="app"> 
+     <br>
+     {{message}}  
+    <hr>
+    <input v-model="nb1" type="text"> {{result}} <button v-on:click="btn">Vérifier</button>
+    <hr>  
+</div>
+
+ <script>   
+    var varMagic = parseInt(Math.random()*100); //nb aléatoire
+    var app = new Vue({
+            el: '#app',
+            data: { 
+                nb1:'',                               // saisie
+                result: 'Saisir un nombre',
+                message: 'Nombre magique - Devinez une valeur entre 0 et 100'        
+            },
+            methods:{
+                btn: function(evt){
+                    if (this.nb1 != varMagic){ //si pas bonne reponse
+                        if(this.nb1 < varMagic){ // nb1 < varMagic
+                            this.result = "trop petit";
+                            this.nb1 = '';
+
+                        }else{// nb1 > varMagic
+                            this.result = "trop grand";
+                            this.nb1 = '';                          
+                        }
+                    }else{
+                        this.result = "Gagné !!!"
+
+                    }
+                }
+            }
+    }); 
+
+ </script>
+ 
+</body>
+</html>
