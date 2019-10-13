@@ -2,30 +2,23 @@
 .taille { 
     height : 60px;
     width :  80px; 
-    margin: 2px 2px 2px 2px;
+    margin: 1px 1px 1px 1px;
     border-radius: 7px;
     }
-/* digit*/
+
+/* digit */
 .taille1 { 
     height : 50px;
-    width : 328px;
-    border-radius: 7px;  
+    width : 344px;
+    border-radius: 7px;    
+    font-size: 35px;
+    background-color: grey;
+    
 }
 
-/* boutons CE et C */
-.taille2{
-    height: 30px;
-    width: 162px;
-    margin: 2px 2px 2px 2px;
-    border-radius: 7px;
-}
 
 /* fond cacul */
 .fond {
     background-color: rgb(179, 175, 175, 0.6);
     border-radius: 5px;
-}
-
-.titre{
-    font-size: 24px;
-}
+} 
