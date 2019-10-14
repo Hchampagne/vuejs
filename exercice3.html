@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+ <title>Exercice2</title>
+ <meta charset="utf-8">
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <style>
+      .calcul {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-auto-rows: minmax(50px,auto);
+      }
+
+      
+  </style>
+
+
+
+  <body>
+
+    <div id="app" class="calcul">
+      
+        <input type="text" v-model=message>
+
+        <div v-on:click="btn1">1</div>
+        <div v-on:click="btn2">2</div>
+        <div v-on:click="btn3">3</div>
+        <div v-on:click="btnPlus">+</div>
+
+        <div v-on:click="btn4">4</div>
+        <div v-on:click="btn5">5</div>
+        <div v-on:click="btn6">6</div>
+        <div v-on:click="btnMoins">-</div>
+
+        <div v-on:click="btn7">7</div>
+        <div v-on:click="btn8">8</div>
+        <div v-on:click="btn9">9</div>
+        <div v-on:click="btnMulti">*</div>
+
+        <div v-on:click="btn0">0</div>
+        <div v-on:click="btnDeci">.</div>
+        <div v-on:click="btnEgal">=</div>
+        <div v-on:click="btnDiv">/</div>
+          
+    </div>
+
+      <script>
+          var app = new Vue({
+              el: '#app',
+              data: {
+                  message: 'Bonjour !',               
+              },
+              methods: {
+                btn1: function (evt) {
+                    this.message = '';
+                    this.message = '1';                    
+                },
+                btn2: function (evt) {
+                    
+                    this.message = '2';                 
+                },
+                btn3: function (evt) {
+                   this.message = '3';
+                },
+                btnPlus: function (evt) {
+                    this.message = '+';
+                },
+                btn4: function (evt) {
+                this.message = '4';
+                },
+                btn5: function (evt) {
+                this.message = '5';
+                },
+                btn6: function (evt) {
+                this.message = '6';
+                },
+                btnMoins: function (evt) {
+                this.message = '-';
+                },
+                 btn7: function (evt) {
+                 this.message = '7';
+                 },
+                 btn8: function (evt) {
+                 this.message = '8';
+                 },
+                 btn9: function (evt) {
+                 this.message = '9';
+                 },
+                 btnMulti: function (evt) {
+                 this.message = '*';
+                 },
+                  btn0: function (evt) {
+                  this.message = '0';
+                  },
+                  btnDeci: function (evt) {
+                  this.message = '.';
+                  },
+                  btnEgal: function (evt) {
+                  this.message = '=';
+                  },
+                  btnDiv: function (evt) {
+                  this.message = '/';
+                  },
+
+              }
+          });
+      </script>
+ </body>
+</html>

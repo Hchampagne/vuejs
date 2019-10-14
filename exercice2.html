@@ -11,7 +11,7 @@
 <body>
  <div id="app"> 
      <br>
-     {{message}}  
+     {{message}}   
     <hr>
     <input v-model="nb1" type="text"> {{result}} <button v-on:click="btn">Vérifier</button>
     <hr>  
@@ -23,7 +23,7 @@
             data: { 
                 nb1:'',                               // saisie
                 result: 'Saisir un nombre',
-                message: 'Nombre magique - Devinez une valeur entre 0 et 100'        
+                message: 'Nombre magique - Devinez une valeur entre 0 et 100',      
             },
             methods:{
                 btn: function(evt){
@@ -31,14 +31,12 @@
                         if(this.nb1 < varMagic){ // nb1 < varMagic
                             this.result = "trop petit";
                             this.nb1 = '';
-
                         }else{// nb1 > varMagic
                             this.result = "trop grand";
                             this.nb1 = '';                          
                         }
                     }else{
                         this.result = "Gagné !!!"
-
                     }
                 }
             }
