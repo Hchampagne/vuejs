@@ -13,114 +13,69 @@
 
 
 
-<div id="app">
+<div id="app" class="contain">
     <div class="col">
         <p class="text-center text-uppercase titre">{{titre}}</p>
         <br>
         <hr>
         <div class="row justify-content-center">
-            <input class="taille1" v-model="message" type="text">
+            <input class="taille1" v-model="result" type="text">
         </div><br>
 
         <div class="row justify-content-center">
-            <button type="button" class="btn btn-danger taille" v-on:click="btnC">C</button>
+            <button type="button" class="btn btn-danger taille" v-on:click="btn('c')">C</button>
         </div>
         <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary taille" v-on:click="btn1">1</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn2">2</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn3">3</button>
-            <button type="button" class="btn btn-secondary taille" v-on:click="btnPlus">+</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('1')">1</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('2')">2</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('3')">3</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('+')">+</button>
+        </div>
+       <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('4')">4</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('5')">5</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('6')">6</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('-')">-</button>
+        </div>
+         <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('7')">7</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('8')">8</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('9')">9</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('*')">*</button>
         </div>
         <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary taille" v-on:click="btn4">4</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn5">5</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn6">6</button>
-            <button type="button" class="btn btn-secondary taille" v-on:click="btnMoins">-</button>
-        </div>
-        <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary taille" v-on:click="btn7">7</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn8">8</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btn9">9</button>
-            <button type="button" class="btn btn-secondary taille" v-on:click="btnMulti">*</button>
-        </div>
-        <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary taille" v-on:click="btn0">0</button>
-            <button type="button" class="btn btn-primary taille" v-on:click="btnDeci">.</button>
-            <button type="button" class="btn btn-success taille" v-on:click="btnEgal">=</button>
-            <button type="button" class="btn btn-secondary taille" v-on:click="btnDiv">/</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('0')">0</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('.')">.</button>
+            <button type="button" class="btn btn-success taille" v-on:click="btn('=')">=</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('/')">/</button>
         </div>
     </div>
 </div>
 
 
 
-      <script>
-
-          var digit = null;
-
-          var app = new Vue({
-              el: '#app',
-              data: {
-                  titre: 'Calculatrice',
-                  message: 'Bonjour !',
-              },
-              methods: {
-                  btn1: function (evt) {
-                      this.message = '1';
-                  },
-                  btn2: function (evt) {
-
-                      this.message = '2';
-                  },
-                  btn3: function (evt) {
-                      this.message = '3';
-                  },
-                  btnPlus: function (evt) {
-                      this.message = '+';
-                  },
-                  btn4: function (evt) {
-                      this.message = '4';
-                  },
-                  btn5: function (evt) {
-                      this.message = '5';
-                  },
-                  btn6: function (evt) {
-                      this.message = '6';
-                  },
-                  btnMoins: function (evt) {
-                      this.message = '-';
-                  },
-                  btn7: function (evt) {
-                      this.message = '7';
-                  },
-                  btn8: function (evt) {
-                      this.message = '8';
-                  },
-                  btn9: function (evt) {
-                      this.message = '9';
-                  },
-                  btnMulti: function (evt) {
-                      this.message = '*';
-                  },
-                  btn0: function (evt) {
-                      this.message = '0';
-                  },
-                  btnDeci: function (evt) {
-                      this.message = '.';
-                  },
-                  btnEgal: function (evt) {
-                      this.message = '=';
-                  },
-                  btnDiv: function (evt) {
-                      this.message = '/';
-                  },
-                  btnC: function(evt){
-                    this.message = '';
-                  }
-              }
-              
-          });
-      </script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titre: 'Calculatrice',
+                result: ''
+            },
+            methods: {
+                btn: function (num){                   
+                    if(num !== 'c'){ // test si touche c clicker
+                        if( num !== '='){ //ajout àla chaine caractère
+                            this.result += num
+                        }else{ //calcul si =
+                            this.result ="calc."                         
+                        }                      
+                    }else{ //efface
+                        this.result = ''
+                    }                                            
+                },             
+            }
+        });
+    </script>
 
 
 
