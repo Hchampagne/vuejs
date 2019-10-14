@@ -11,14 +11,9 @@
     height : 50px;
     width : 344px;
     border-radius: 7px;    
-    font-size: 35px;
-    background-color:white;
+    font-size: 30px;
+    background-color: rgb(214, 228, 19);
     
 }
 
 
-/* fond cacul */
-.fond {
-    background-color: rgb(179, 175, 175, 0.6);
-    border-radius: 5px;
-} 

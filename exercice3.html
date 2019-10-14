@@ -1,75 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
- <title>Exercice3</title>
+ <title>Exercice2</title>
  <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-    <link rel="stylesheet" href="style.css">    
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
+<body>
+  <style>
+      .calcul {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-auto-rows: minmax(50px,auto);
+      }
 
-
-
-    <div id="app" class="col">
-        <p class="text-center text-uppercase titre" >{{titre}}</p>
-    </div>   
-        <br><hr>
-        <div class="row justify-content-center">           
-            <input class="taille1"  v-model="result" type="text">          
-        </div><br>
-        <div class="row justify-content-center">
-            <input type="button" class="btn btn-danger taille2" v-on:click="btn" value="CE">
-            <input type="button" class="btn btn-warning taille2" v-on:click="btn" value="C">
-        </div>
-        <div class="row justify-content-center">          
-            <input type="button" class="btn btn-primary taille"  v-model="1" v-on:click="btn-1" value="1">
-            <input type="button" class="btn btn-primary taille" v-model="2" v-on:click="btn-2" value="2">
-            <input type="button" class="btn btn-primary taille" v-model="3" v-on:click="btn-3" value="3">
-            <input type="button" class="btn btn-secondary taille" v-on:click="plus" v-model="plus" value="+">          
-        </div>
-        <div class="row justify-content-center">
-            <input type="button" class="btn btn-primary taille" v-model="4" v-on:click="btn-4" value="4">
-            <input type="button" class="btn btn-primary taille" v-model="5" v-on:click="btn-5" value="5">
-            <input type="button" class="btn btn-primary taille" v-model="6" v-on:click="btn-6" value="6">
-            <input type="button" class="btn btn-secondary taille" v-on:click="moins" v-model="moins" value="-">           
-        </div>
-        <div class="row justify-content-center">
-            <input type="button" class="btn btn-primary taille" v-model="7" v-on:click="btn-7" value="7">
-            <input type="button" class="btn btn-primary taille" v-model="8" v-on:click="btn-8" value="8">
-            <input type="button" class="btn btn-primary taille" v-model="9" v-on:click="btn-9" value="9">
-            <input type="button" class="btn btn-secondary taille" v-on:click="multi" v-model="multi" value="*">           
-        </div>
-        <div class="row justify-content-center">
-            <input type="button" class="btn btn-primary taille" v-model="0" v-on:click="btn-0" value="0">   
-            <input type="button" class="btn btn-primary taille" v-model="virgule" v-on:click="btn-p" value=".">
-            <input type="button" class="btn btn-success taille" v-model="egal" v-on:click="egal" value="=">
-            <input type="button" class="btn btn-secondary taille" v-on:click="div" v-model="div" value="/">           
-        </div>
-    
-
-
- <script>
-      var app = new Vue({
-        el: '#app',
-             data: {
-                erreur: "division /0 ?!",
-                result: 0,
-                titre: "calculatrice"
-                
-        },
-           
-
-       
-        });
       
- </script>
+  </style>
 
 
- 
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"> </script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"> </script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+
+  <body>
+
+    <div id="app" class="calcul">
+      
+        <input type="text" v-model=message>
+
+        <div v-on:click="btn1">1</div>
+        <div v-on:click="btn2">2</div>
+        <div v-on:click="btn3">3</div>
+        <div v-on:click="btnPlus">+</div>
+
+        <div v-on:click="btn4">4</div>
+        <div v-on:click="btn5">5</div>
+        <div v-on:click="btn6">6</div>
+        <div v-on:click="btnMoins">-</div>
+
+        <div v-on:click="btn7">7</div>
+        <div v-on:click="btn8">8</div>
+        <div v-on:click="btn9">9</div>
+        <div v-on:click="btnMulti">*</div>
+
+        <div v-on:click="btn0">0</div>
+        <div v-on:click="btnDeci">.</div>
+        <div v-on:click="btnEgal">=</div>
+        <div v-on:click="btnDiv">/</div>
+          
+    </div>
+
+      <script>
+          var app = new Vue({
+              el: '#app',
+              data: {
+                  message: 'Bonjour !',               
+              },
+              methods: {
+                btn1: function (evt) {
+                    this.message = '';
+                    this.message = '1';                    
+                },
+                btn2: function (evt) {
+                    
+                    this.message = '2';                 
+                },
+                btn3: function (evt) {
+                   this.message = '3';
+                },
+                btnPlus: function (evt) {
+                    this.message = '+';
+                },
+                btn4: function (evt) {
+                this.message = '4';
+                },
+                btn5: function (evt) {
+                this.message = '5';
+                },
+                btn6: function (evt) {
+                this.message = '6';
+                },
+                btnMoins: function (evt) {
+                this.message = '-';
+                },
+                 btn7: function (evt) {
+                 this.message = '7';
+                 },
+                 btn8: function (evt) {
+                 this.message = '8';
+                 },
+                 btn9: function (evt) {
+                 this.message = '9';
+                 },
+                 btnMulti: function (evt) {
+                 this.message = '*';
+                 },
+                  btn0: function (evt) {
+                  this.message = '0';
+                  },
+                  btnDeci: function (evt) {
+                  this.message = '.';
+                  },
+                  btnEgal: function (evt) {
+                  this.message = '=';
+                  },
+                  btnDiv: function (evt) {
+                  this.message = '/';
+                  },
+
+              }
+          });
+      </script>
+ </body>
 </html>

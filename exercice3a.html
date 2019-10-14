@@ -1,46 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
- <title>Exercice3</title>
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Exercice3a</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
 
+<div id="app" class="contain">
+    <div class="col">
+        <p class="text-center text-uppercase titre">{{titre}}</p>
+        <br>
+        <hr>
+        <div class="row justify-content-center">
+            <input class="taille1" v-model="result" type="text">
+        </div><br>
 
-    <div id="app">
-        <ul>
-            <li v-for="key">{{key.nom}}</li>
-        </ul>
-    </div>   
-       
-    
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-danger taille" v-on:click="btn('c')">C</button>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('1')">1</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('2')">2</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('3')">3</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('+')">+</button>
+        </div>
+       <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('4')">4</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('5')">5</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('6')">6</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('-')">-</button>
+        </div>
+         <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('7')">7</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('8')">8</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('9')">9</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('*')">*</button>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('0')">0</button>
+            <button type="button" class="btn btn-primary taille" v-on:click="btn('.')">.</button>
+            <button type="button" class="btn btn-success taille" v-on:click="btn('=')">=</button>
+            <button type="button" class="btn btn-secondary taille" v-on:click="btn('/')">/</button>
+        </div>
+    </div>
+</div>
 
 
- <script>
-      var app = new Vue({
-        el: '#app',
-             data: {
-                 key: [
-                     {nom: '1'},{nom: '2'},{nom: '3'},{nom: '-'},
-                     {nom: '4'},{nom: '5'},{nom: '6'},{nom: '+'},
-                     {nom: '7'},{nom: '8'},{nom: '9'},{nom: '*'},
-                     {nom: '0'},{nom: '.'},{nom: '='},{nom: '/'}                 
-                 ]
-                               
-            },     
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titre: 'Calculatrice',
+                result: ''
+            },
+            methods: {
+                btn: function (num){                   
+                    if(num !== 'c'){ // test si touche c clicker
+                        if( num !== '='){ //ajout àla chaine caractère
+                            this.result += num
+                        }else{ //calcul si =
+                            
+                            let mess = this.result;
+                            this.result = eval(mess);                      
+                        }                      
+                    }else{ //efface
+                        this.result = ''
+                    }                                            
+                },             
+            }
         });
-      
- </script>
+    </script>
 
 
- 
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"> </script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"> </script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
 </body>
+
 </html>
