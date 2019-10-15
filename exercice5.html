@@ -10,11 +10,40 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+<body>	
 
-<body>		
+<div id="app">
+    <p>{{ message }}</p>
+    <input type="text" v-model="name">
+    <button v-on:click="btn">recherche...</button>
+        <div v-for="item in liste">
+            {{ item.sta_nom }}
+        </div>
 
+</div>
     
+<script>
 
+var app = new Vue({
+el: '#app',
+data: {
+    message: "recherche"
+
+},
+mounted () {
+
+      axios.get("http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query="+name+"&page=1").then(function(reponse) {
+
+      console.log(reponse.data);
+
+      this.liste = reponse.data;
+
+      this.message = "Liste chargée";
+        })
+    }
+});
+
+</script>
     
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
