@@ -17,7 +17,7 @@
     <input type="text" v-model="name">
     <button v-on:click="btn">recherche...</button>
         <div v-for="item in liste">
-            {{ item.title }}
+            {{ item.liste }}
         </div>
 
 </div>
@@ -36,6 +36,7 @@
                     {
                     console.log(reponse.data);
                     this.liste = reponse.data;
+                    console.log(liste);
                     this.message = "Liste chargée";
                     })
 
