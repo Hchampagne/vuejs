@@ -16,10 +16,12 @@
     <p>{{ message }}</p>
     <input type="text" v-model="name">
     <button v-on:click="btn">recherche...</button>
- 
-       <div v-for='result in liste'>
-           <p>{{result.title}}</p>
-           <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='100px'>
+
+   
+          
+       <div v-for="result in liste">
+           <p></p>{{result.title}}</p>
+           <img v-bind:src="'http://image.tmdb.org/t/p/w185' +result.poster_path ">         
       </div>
 </div>
     
@@ -28,17 +30,13 @@
         el: '#app',
             data: {
                 message: "recherche",
+                page:'1',
                 liste: null
             },
             methods: {
-                btn: function(evt){
-                    
-                    axios.get("http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query="+name+"&page=1")
-                        .then(function(reponse)
-                    {              
-                    this.liste = reponse.data;
-                    console.log(liste);                                  
-                    })
+                btn: function(evt){                   
+                    axios.get("http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query="+name+"&page=1")                     
+                        .then(response=>(this.liste=response.data.results))                   
                 }
             }          
     });
