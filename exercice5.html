@@ -17,9 +17,10 @@
     <input type="text" v-model="name">
     <button v-on:click="btn">recherche...</button>
  
-        <div v-for='todo in liste'>
-             {{todo.title}}
-        </div>     
+       <div v-for='result in liste'>
+           <p>{{result.title}}</p>
+           <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='100px'>
+      </div>
 </div>
     
 <script>  
